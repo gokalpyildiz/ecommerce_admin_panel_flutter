@@ -11,6 +11,8 @@ class UrlService {
 
   static String getCurrentUrl() {
     var path = Uri.base.path;
-    return path.replaceAll('flatten/web/', '');
+    //return path.replaceAll('flatten/web/', '');
+    //todo güncellencecek
+    return path;
   }
 }

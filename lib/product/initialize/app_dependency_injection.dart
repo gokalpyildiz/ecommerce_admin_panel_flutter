@@ -11,6 +11,6 @@ class AppDependencyInjection {
   static AppDependencyInjection get instance => _instance;
   final locator = GetIt.instance;
   void setupGetItLocators() {
-    locator.registerLazySingleton<AppRouterHandler>(AppRouterHandler.new);
+    //locator.registerLazySingleton<AppRouterHandler>(AppRouterHandler.new);
   }
 }

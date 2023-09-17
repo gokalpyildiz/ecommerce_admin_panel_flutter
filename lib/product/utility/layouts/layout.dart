@@ -1,3 +1,6 @@
+import 'dart:async';
+
+import 'package:after_layout/after_layout.dart';
 import 'package:feather_icons/feather_icons.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +19,6 @@ import 'layout_controller.dart';
 import 'left_bar/left_bar.dart';
 import 'my_responsive.dart';
 import 'responsive.dart';
-import 'top_bar.dart';
 
 class Layout extends StatefulWidget {
   final Widget? child;
@@ -27,7 +29,7 @@ class Layout extends StatefulWidget {
   State<Layout> createState() => _LayoutState();
 }
 
-class _LayoutState extends State<Layout> with LayoutMixin {
+class _LayoutState extends State<Layout> with LayoutMixin, AfterLayoutMixin {
   //final LayoutController controller = LayoutController();
   final topBarTheme = AdminTheme.theme.topBarTheme;
 
@@ -122,23 +124,40 @@ class _LayoutState extends State<Layout> with LayoutMixin {
         children: [
           LeftBar(isCondensed: ThemeCustomizer.instance.leftBarCondensed),
           Expanded(
-              child: Stack(
-            children: [
-              Positioned(
-                top: 0,
-                right: 0,
-                left: 0,
-                bottom: 0,
-                child: SingleChildScrollView(
-                  padding:
-                      MySpacing.fromLTRB(0, 58 + flexSpacing, 0, flexSpacing),
-                  key: scrollKey,
-                  child: widget.child,
+            child: Stack(
+              children: [
+                Positioned(
+                  top: 0,
+                  right: 0,
+                  left: 0,
+                  bottom: 0,
+                  child: SingleChildScrollView(
+                    padding: MySpacing.y(flexSpacing),
+                    key: scrollKey,
+                    child: widget.child,
+                  ),
                 ),
-              ),
-              Positioned(top: 0, left: 0, right: 0, child: TopBar()),
-            ],
-          )),
+              ],
+            ),
+          ) //todo appbar istenirse aktif edilsin
+          // Expanded(
+          //     child: Stack(
+          //   children: [
+          //     Positioned(
+          //       top: 0,
+          //       right: 0,
+          //       left: 0,
+          //       bottom: 0,
+          //       child: SingleChildScrollView(
+          //         padding:
+          //             MySpacing.fromLTRB(0, 58 + flexSpacing, 0, flexSpacing),
+          //         key: scrollKey,
+          //         child: widget.child,
+          //       ),
+          //     ),
+          //     Positioned(top: 0, left: 0, right: 0, child: TopBar()),
+          //   ],
+          // )),
           // Expanded(
           //     child: Column(
           //   crossAxisAlignment: CrossAxisAlignment.start,
@@ -318,5 +337,11 @@ class _LayoutState extends State<Layout> with LayoutMixin {
         ],
       ),
     );
+  }
+
+  @override
+  FutureOr<void> afterFirstLayout(BuildContext context) {
+    //todo leftbarda tıklama saçmalığını tam olarak olmasa da çözdü
+    //setState(() {});
   }
 }

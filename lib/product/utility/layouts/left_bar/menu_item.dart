@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../../core/utils/widgets/my_container.dart';
 import '../../../../core/utils/widgets/my_spacing.dart';
@@ -12,6 +13,7 @@ class MenuItem extends StatefulWidget {
   final String title;
   final bool isCondensed;
   final String? route;
+  final Function route2;
 
   const MenuItem({
     Key? key,
@@ -19,6 +21,7 @@ class MenuItem extends StatefulWidget {
     required this.title,
     this.isCondensed = false,
     this.route,
+    required this.route2,
   }) : super(key: key);
 
   @override
@@ -31,11 +34,14 @@ class _MenuItemState extends State<MenuItem> with UIMixin {
   @override
   Widget build(BuildContext context) {
     bool isActive = UrlService.getCurrentUrl() == widget.route;
+    var a = UrlService.getCurrentUrl();
     return GestureDetector(
       onTap: () {
         if (widget.route != null) {
+          widget.route2();
           //Get.toNamed(widget.route!);
-          context.router.pushNamed(widget.route!);
+          //context.router.pushNamed(widget.route!);
+          // MyRouter.pushReplacementNamed(context, widget.route!, arguments: 1);
         }
       },
       child: MouseRegion(

@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../../core/utils/widgets/my_container.dart';
 import '../../../../core/utils/widgets/my_spacing.dart';
@@ -12,12 +13,14 @@ class NavigationItem extends StatefulWidget {
   final String title;
   final bool isCondensed;
   final String? route;
+  final Function route2;
 
   const NavigationItem(
       {Key? key,
       this.iconData,
       required this.title,
       this.isCondensed = false,
+      required this.route2,
       this.route})
       : super(key: key);
 
@@ -30,12 +33,18 @@ class _NavigationItemState extends State<NavigationItem> with UIMixin {
 
   @override
   Widget build(BuildContext context) {
-    bool isActive = UrlService.getCurrentUrl() == widget.route;
+    var a = UrlService.getCurrentUrl();
+    var b = widget.route;
+    //bool isActive = UrlService.getCurrentUrl() == widget.route;
+    bool isActive = a == b;
     return GestureDetector(
       onTap: () {
         if (widget.route != null) {
           //Get.toNamed(widget.route!);
-          context.router.pushNamed(widget.route!);
+          widget.route2();
+          //context.router.pushNamed(widget.route!);
+          setState(() {});
+          // MyRouter.pushReplacementNamed(context, widget.route!, arguments: 1);
         }
       },
       child: MouseRegion(
@@ -52,9 +61,9 @@ class _NavigationItemState extends State<NavigationItem> with UIMixin {
         },
         child: MyContainer.transparent(
           margin: MySpacing.fromLTRB(16, 0, 16, 8),
-          color: isActive || isHover
-              ? leftBarTheme.activeItemBackground
-              : Colors.transparent,
+          //color: isActive || isHover
+          color:
+              isHover ? leftBarTheme.activeItemBackground : Colors.transparent,
           padding: MySpacing.xy(8, 8),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,

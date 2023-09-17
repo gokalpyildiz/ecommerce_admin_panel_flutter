@@ -35,6 +35,7 @@ dependencies:
   feather_icons: ^1.2.0
   lucide_icons: ^0.257.0
   flutter_blurhash: ^0.7.0
+  get: ^4.6.6
 
   
 

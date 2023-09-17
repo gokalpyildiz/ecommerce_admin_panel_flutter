@@ -1,19 +1,21 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:ecommerce_yildiz_flutter/view/dashboard/view/dashboard_view.dart';
+import 'package:ecommerce_yildiz_flutter/view/product/price_list/view/price_list_page.dart';
+import 'package:ecommerce_yildiz_flutter/view/product/product_attributes/cubit/product_attributes_cubit.dart';
+import 'package:ecommerce_yildiz_flutter/view/product/product_attributes/view/product_attributes.dart';
+import 'package:ecommerce_yildiz_flutter/view/product/product_pool/view/product_pool_view.dart';
+import 'package:ecommerce_yildiz_flutter/view/product/stock_list/view/stock_list_view.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:get/get.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 
-import '../../../../core/utils/theme/app_style.dart';
-import '../../../../core/utils/theme/app_theme.dart';
 import '../../../../core/utils/theme/theme_customizer.dart';
-import '../../../../core/utils/widgets/custom_popup_menu.dart';
-import '../../../../core/utils/widgets/my_button.dart';
 import '../../../../core/utils/widgets/my_card.dart';
-import '../../../../core/utils/widgets/my_container.dart';
 import '../../../../core/utils/widgets/my_shadow.dart';
 import '../../../../core/utils/widgets/my_spacing.dart';
 import '../../../../core/utils/widgets/my_text.dart';
 import '../../../../core/utils/widgets/ui_mixin.dart';
+import '../../../../view/product/product_attributes_set/view/product_attributes_view.dart';
 import '../../../constants/image_constants.dart';
 import '../../../navigator/app_router.dart';
 import '../../../services/url_services.dart';
@@ -84,8 +86,10 @@ class _LeftBarState extends State<LeftBar>
                   InkWell(
                       onTap: () {
                         //Get.toNamed('/dashboard');
+                        Get.to(DashBoardView(),
+                            transition: Transition.noTransition);
                         //todo .pushNamed ya da .push da olabilir.
-                        context.router.replaceNamed(AppRoute.dashboard);
+                        //context.router.replaceNamed(AppRoute.dashboard);
                       },
                       child: Image.asset(
                         //Images.logoIcon,
@@ -128,8 +132,12 @@ class _LeftBarState extends State<LeftBar>
                     //title: "Dashboard" + DateTime.now().toString(),
                     title: DateTime.now().millisecond.toString(),
                     isCondensed: isCondensed,
-                    //route: '/dashboard',
-                    route: AppRoute.dashboard,
+                    route: '/DashBoardView',
+                    route2: () {
+                      Get.to(DashBoardView(),
+                          transition: Transition.noTransition);
+                    },
+                    //route: AppRoute.dashboard,
                   ),
                   //labelWidget("apps".tr()),
 
@@ -153,37 +161,66 @@ class _LeftBarState extends State<LeftBar>
                     iconData: LucideIcons.store,
                     isCondensed: isCondensed,
                     //title: "Contacts",
-                    title: 'Ürünler ve Kataloglar',
+                    title: 'Ürünler ve Kataloglar' +
+                        DateTime.now().millisecond.toString(),
                     children: [
                       MenuItem(
                         //title: "Members",
-                        //route: '/contacts/members',
-                        title: 'Ürün Havuzu',
-                        route: AppRoute.productPool,
+                        //route: '/ProductPoolView',
+                        route2: () {
+                          Get.to(ProductPoolView(),
+                              transition: Transition.noTransition);
+                        },
+                        title: 'Ürün Havuzu' +
+                            DateTime.now().millisecond.toString(),
+                        //route: AppRoute.productPool,
+                        route: '/ProductPoolView',
                         isCondensed: widget.isCondensed,
                       ),
                       MenuItem(
                         // title: "profile".tr(),
                         // route: '/contacts/profile',
-                        title: 'Ürün Özellikleri',
-                        route: AppRoute.productAttributes,
+                        route2: () {
+                          Get.to(ProductAttributesView(),
+                              transition: Transition.noTransition);
+                        },
+                        title: 'Ürün Özellikleri' +
+                            DateTime.now().millisecond.toString(),
+                        //route: AppRoute.productAttributes,
+                        route: '/ProductAttributesView',
                         isCondensed: widget.isCondensed,
                       ),
                       MenuItem(
                         // title: "Edit Profile",
                         // route: '/contacts/edit-profile',
-                        title: 'Ürün Özellik Setleri',
-                        route: AppRoute.productAttributesSet,
+                        route2: () {
+                          Get.to(ProductAttributesSetView(),
+                              transition: Transition.noTransition);
+                        },
+                        title: 'Ürün Özellik Setleri' +
+                            DateTime.now().millisecond.toString(),
+                        //route: AppRoute.productAttributesSet,
+                        route: '/ProductAttributesSetView',
                         isCondensed: widget.isCondensed,
                       ),
                       MenuItem(
                         title: 'Fiyat Listesi',
-                        route: AppRoute.priceList,
+                        //route: AppRoute.priceList,
+                        route2: () {
+                          Get.to(PriceListView(),
+                              transition: Transition.noTransition);
+                        },
+                        route: '/PriceListView',
                         isCondensed: widget.isCondensed,
                       ),
                       MenuItem(
                         title: 'Stok Listesi',
-                        route: AppRoute.stockList,
+                        route2: () {
+                          Get.to(StockListView(),
+                              transition: Transition.noTransition);
+                        },
+                        //route: AppRoute.stockList,
+                        route: '/StockListView',
                         isCondensed: widget.isCondensed,
                       ),
                     ],

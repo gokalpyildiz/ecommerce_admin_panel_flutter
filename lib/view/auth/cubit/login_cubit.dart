@@ -1,8 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:bloc/bloc.dart';
 import 'package:ecommerce_yildiz_flutter/product/navigator/app_router_handler.dart';
+import 'package:ecommerce_yildiz_flutter/view/dashboard/view/dashboard_view.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../core/utils/widgets/validator/my_form_validator.dart';
 import '../../../core/utils/widgets/validator/my_validators.dart';
@@ -55,14 +57,14 @@ class LoginCubit extends Cubit<LoginState> {
         basicValidator.validateForm();
         basicValidator.clearErrors();
       } else {
-        // String nextUrl =
-        //     Uri.parse(ModalRoute.of(Get.context!)?.settings.name ?? "")
-        //             .queryParameters['next'] ??
-        //         "/dashboard";
+        String nextUrl =
+            Uri.parse(ModalRoute.of(Get.context!)?.settings.name ?? "")
+                    .queryParameters['next'] ??
+                "/dashboard";
         // Get.toNamed(
         //   nextUrl,
         // );
-        context.router.replaceNamed(AppRoute.dashboard);
+        //context.router.replaceNamed(AppRoute.dashboard);
       }
       emit(state.copyWith(loading: false));
       //loading = false;
@@ -70,6 +72,15 @@ class LoginCubit extends Cubit<LoginState> {
       //setState(() {});
     }
     emit(state.copyWith(loading: false));
-    context.router.replaceNamed(AppRoute.dashboard);
+    //context.router.replaceNamed(AppRoute.dashboard);
+    String nextUrl = Uri.parse(ModalRoute.of(Get.context!)?.settings.name ?? "")
+            .queryParameters['next'] ??
+        "/dashboard";
+    // Get.toNamed(
+    //   nextUrl,
+    // );
+    //Get.to(DashBoardView());
+    //Get.toNamed('/dashboard');
+    Get.to(DashBoardView());
   }
 }

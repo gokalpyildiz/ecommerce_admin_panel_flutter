@@ -21,7 +21,7 @@ import '../../../product/utility/layouts/auth_layout.dart';
 import '../../../product/utility/layouts/my_responsive.dart';
 import '../../../product/utility/widgets/images.dart';
 
-@RoutePage<String>()
+//@RoutePage<String>()
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);
 
