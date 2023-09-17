@@ -1,5 +1,9 @@
+import 'dart:async';
+
+import 'package:after_layout/after_layout.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:ecommerce_yildiz_flutter/core/components/basic_widgets/basic_scaffold.dart';
+import 'package:ecommerce_yildiz_flutter/product/navigator/app_router.dart';
 import 'package:ecommerce_yildiz_flutter/view/splash/cubit/splash_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -8,8 +12,19 @@ import 'package:kartal/kartal.dart';
 import '../../../product/constants/image_constants.dart';
 
 @RoutePage<String>()
-class SplashView extends StatelessWidget {
+class SplashView extends StatefulWidget {
   const SplashView({super.key});
+
+  @override
+  State<SplashView> createState() => _SplashViewState();
+}
+
+class _SplashViewState extends State<SplashView>
+    with AfterLayoutMixin<SplashView> {
+  @override
+  FutureOr<void> afterFirstLayout(BuildContext context) {
+    _openloginOrHomePage(DateTime.now(), context);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,8 +34,8 @@ class SplashView extends StatelessWidget {
         child: SafeArea(
           child: Stack(
             children: [
-              buildCenterTextWelcome(context),
               buildAnimatedAlignIcon(context),
+              buildCenterTextWelcome(context),
             ],
           ),
         ),
@@ -40,15 +55,16 @@ class SplashView extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
+              SizedBox(height: 100),
               Text(
-                'Welcome',
+                'Hello World',
                 style: context.general.textTheme.headlineMedium?.copyWith(
                   fontWeight: FontWeight.w700,
                   color: context.general.colorScheme.primaryContainer,
                 ),
                 textAlign: TextAlign.center,
               ),
-              const CircularProgressIndicator.adaptive(),
+              //const CircularProgressIndicator.adaptive(),
             ],
           ),
         ));
@@ -62,13 +78,22 @@ class SplashView extends StatelessWidget {
     return BlocBuilder<SplashCubit, SplashState>(
       builder: (context, state) {
         return AnimatedAlign(
-          alignment:
-              state.isFirstInit ? Alignment.center : Alignment.bottomCenter,
-          duration: context.duration.durationLow,
-          child: Image.asset(ImageConstants.appIcon.toPng,
-              width: 100, height: 100),
+          alignment: state.isFirstInit ? Alignment.topCenter : Alignment.center,
+          duration: context.duration.durationNormal,
+          child:
+              Image.asset(ImagePath.instance.appIcon, width: 100, height: 100),
         );
       },
     );
   }
+
+  Future<void> _openloginOrHomePage(DateTime from, BuildContext context) {
+    return Future.delayed(
+        Duration(seconds: delayThreeSeconds(from, DateTime.now())), () {
+      context.router.replaceNamed(AppRoute.login);
+    });
+  }
+
+  int delayThreeSeconds(DateTime from, DateTime to) =>
+      (to.difference(from)).inSeconds < 3 ? 3 : 0;
 }

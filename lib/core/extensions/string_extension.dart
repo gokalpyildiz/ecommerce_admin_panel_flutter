@@ -1,6 +1,7 @@
 extension ImagePathExtension on String {
   String get toSVG => 'assets/svg/$this.svg';
-  String get toPNG => 'assets/images/$this.png';
+  String get toPng => 'assets/image/$this.png';
+  String get toJpg => 'assets/image/$this.jpg';
 }
 
 extension UtilExtensions on String {
