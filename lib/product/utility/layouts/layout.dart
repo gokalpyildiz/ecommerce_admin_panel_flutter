@@ -49,60 +49,60 @@ class _LayoutState extends State<Layout> with LayoutMixin {
       key: scaffoldKey,
       appBar: AppBar(
         elevation: 0,
-        actions: [
-          InkWell(
-            onTap: () {
-              ThemeCustomizer.setTheme(
-                  ThemeCustomizer.instance.theme == ThemeMode.dark
-                      ? ThemeMode.light
-                      : ThemeMode.dark);
-            },
-            child: Icon(
-              ThemeCustomizer.instance.theme == ThemeMode.dark
-                  ? FeatherIcons.sun
-                  : FeatherIcons.moon,
-              size: 18,
-              color: topBarTheme.onBackground,
-            ),
-          ),
-          MySpacing.width(8),
-          CustomPopupMenu(
-            backdrop: true,
-            onChange: (_) {},
-            offsetX: -180,
-            menu: Padding(
-              padding: MySpacing.xy(8, 8),
-              child: Center(
-                child: Icon(
-                  FeatherIcons.bell,
-                  size: 18,
-                ),
-              ),
-            ),
-            menuBuilder: (_) => buildNotifications(),
-          ),
-          MySpacing.width(8),
-          CustomPopupMenu(
-            backdrop: true,
-            onChange: (_) {},
-            offsetX: -90,
-            offsetY: 4,
-            menu: Padding(
-              padding: MySpacing.xy(8, 8),
-              child: MyContainer.rounded(
-                  paddingAll: 0,
-                  child: Image.asset(
-                    //Images.avatars[0],
-                    ImagePath.instance.appIcon,
-                    height: 28,
-                    width: 28,
-                    fit: BoxFit.cover,
-                  )),
-            ),
-            menuBuilder: (_) => buildAccountMenu(),
-          ),
-          MySpacing.width(20)
-        ],
+        // actions: [
+        //   InkWell(
+        //     onTap: () {
+        //       ThemeCustomizer.setTheme(
+        //           ThemeCustomizer.instance.theme == ThemeMode.dark
+        //               ? ThemeMode.light
+        //               : ThemeMode.dark);
+        //     },
+        //     child: Icon(
+        //       ThemeCustomizer.instance.theme == ThemeMode.dark
+        //           ? FeatherIcons.sun
+        //           : FeatherIcons.moon,
+        //       size: 18,
+        //       color: topBarTheme.onBackground,
+        //     ),
+        //   ),
+        //   MySpacing.width(8),
+        //   CustomPopupMenu(
+        //     backdrop: true,
+        //     onChange: (_) {},
+        //     offsetX: -180,
+        //     menu: Padding(
+        //       padding: MySpacing.xy(8, 8),
+        //       child: Center(
+        //         child: Icon(
+        //           FeatherIcons.bell,
+        //           size: 18,
+        //         ),
+        //       ),
+        //     ),
+        //     menuBuilder: (_) => buildNotifications(),
+        //   ),
+        //   MySpacing.width(8),
+        //   CustomPopupMenu(
+        //     backdrop: true,
+        //     onChange: (_) {},
+        //     offsetX: -90,
+        //     offsetY: 4,
+        //     menu: Padding(
+        //       padding: MySpacing.xy(8, 8),
+        //       child: MyContainer.rounded(
+        //           paddingAll: 0,
+        //           child: Image.asset(
+        //             //Images.avatars[0],
+        //             ImagePath.instance.appIcon,
+        //             height: 28,
+        //             width: 28,
+        //             fit: BoxFit.cover,
+        //           )),
+        //     ),
+        //     menuBuilder: (_) => buildAccountMenu(),
+        //   ),
+        //   MySpacing.width(20)
+        // ],
       ), // endDrawer: RightBar(),
       // extendBodyBehindAppBar: true,
       // appBar: TopBar(

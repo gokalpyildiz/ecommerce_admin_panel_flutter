@@ -119,8 +119,8 @@ class _LeftBarState extends State<LeftBar>
                 children: [
                   NavigationItem(
                     iconData: LucideIcons.layoutDashboard,
-                    //title: "Dashboard" + DateTime.now().toString(),
-                    title: DateTime.now().millisecond.toString(),
+                    title: "Dashboard",
+                    //title: DateTime.now().millisecond.toString(),
                     isCondensed: isCondensed,
                     route: AppPages.dashboard,
                     //route: AppRoute.dashboard,
