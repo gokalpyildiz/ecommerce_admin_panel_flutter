@@ -1,21 +1,15 @@
-import 'package:auto_route/auto_route.dart';
+import 'package:ecommerce_yildiz_flutter/product/navigator/getx_router/app_pages.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:get/get.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 
-import '../../../../core/utils/theme/app_style.dart';
-import '../../../../core/utils/theme/app_theme.dart';
 import '../../../../core/utils/theme/theme_customizer.dart';
-import '../../../../core/utils/widgets/custom_popup_menu.dart';
-import '../../../../core/utils/widgets/my_button.dart';
 import '../../../../core/utils/widgets/my_card.dart';
-import '../../../../core/utils/widgets/my_container.dart';
 import '../../../../core/utils/widgets/my_shadow.dart';
 import '../../../../core/utils/widgets/my_spacing.dart';
 import '../../../../core/utils/widgets/my_text.dart';
 import '../../../../core/utils/widgets/ui_mixin.dart';
 import '../../../constants/image_constants.dart';
-import '../../../navigator/app_router.dart';
 import '../../../services/url_services.dart';
 import 'menu_item.dart';
 import 'menu_widget.dart';
@@ -83,9 +77,9 @@ class _LeftBarState extends State<LeftBar>
                 children: [
                   InkWell(
                       onTap: () {
-                        //Get.toNamed('/dashboard');
+                        Get.toNamed(AppPages.dashboard);
                         //todo .pushNamed ya da .push da olabilir.
-                        context.router.replaceNamed(AppRoute.dashboard);
+                        //context.router.replaceNamed(AppRoute.dashboard);
                       },
                       child: Image.asset(
                         //Images.logoIcon,
@@ -128,8 +122,8 @@ class _LeftBarState extends State<LeftBar>
                     //title: "Dashboard" + DateTime.now().toString(),
                     title: DateTime.now().millisecond.toString(),
                     isCondensed: isCondensed,
-                    //route: '/dashboard',
-                    route: AppRoute.dashboard,
+                    route: AppPages.dashboard,
+                    //route: AppRoute.dashboard,
                   ),
                   //labelWidget("apps".tr()),
 
@@ -157,33 +151,35 @@ class _LeftBarState extends State<LeftBar>
                     children: [
                       MenuItem(
                         //title: "Members",
-                        //route: '/contacts/members',
+                        route: AppPages.productPool,
                         title: 'Ürün Havuzu',
-                        route: AppRoute.productPool,
+                        //route: AppRoute.productPool,
                         isCondensed: widget.isCondensed,
                       ),
                       MenuItem(
                         // title: "profile".tr(),
-                        // route: '/contacts/profile',
+                        route: AppPages.productAttributes,
                         title: 'Ürün Özellikleri',
-                        route: AppRoute.productAttributes,
+                        //route: AppRoute.productAttributes,
                         isCondensed: widget.isCondensed,
                       ),
                       MenuItem(
                         // title: "Edit Profile",
-                        // route: '/contacts/edit-profile',
+                        route: AppPages.productAttributesSet,
                         title: 'Ürün Özellik Setleri',
-                        route: AppRoute.productAttributesSet,
+                        //route: AppRoute.productAttributesSet,
                         isCondensed: widget.isCondensed,
                       ),
                       MenuItem(
                         title: 'Fiyat Listesi',
-                        route: AppRoute.priceList,
+                        route: AppPages.priceList,
+                        //route: AppRoute.priceList,
                         isCondensed: widget.isCondensed,
                       ),
                       MenuItem(
                         title: 'Stok Listesi',
-                        route: AppRoute.stockList,
+                        route: AppPages.stockList,
+                        //route: AppRoute.stockList,
                         isCondensed: widget.isCondensed,
                       ),
                     ],

@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 import '../theme/admin_theme.dart';
@@ -60,7 +59,10 @@ mixin UIMixin {
   //todo üstteki şekilde generic yapılmalı.
   Widget getBackButton(BuildContext context) {
     return InkWell(
-      onTap: context.back,
+      //onTap: context.back,
+      onTap: () {
+        Navigator.pop(context);
+      },
       child: Center(
         child: Icon(
           Icons.chevron_left_rounded,

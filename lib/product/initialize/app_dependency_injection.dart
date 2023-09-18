@@ -2,7 +2,7 @@
 
 import 'package:get_it/get_it.dart';
 
-import '../navigator/app_router_handler.dart';
+import '../navigator/auto_route/app_router_handler.dart';
 
 class AppDependencyInjection {
   AppDependencyInjection._init();
@@ -11,6 +11,6 @@ class AppDependencyInjection {
   static AppDependencyInjection get instance => _instance;
   final locator = GetIt.instance;
   void setupGetItLocators() {
-    locator.registerLazySingleton<AppRouterHandler>(AppRouterHandler.new);
+    //locator.registerLazySingleton<AppRouterHandler>(AppRouterHandler.new);
   }
 }

@@ -1,17 +1,16 @@
 import 'dart:async';
 
 import 'package:after_layout/after_layout.dart';
-import 'package:auto_route/auto_route.dart';
+
 import 'package:ecommerce_yildiz_flutter/core/components/basic_widgets/basic_scaffold.dart';
-import 'package:ecommerce_yildiz_flutter/product/navigator/app_router.dart';
 import 'package:ecommerce_yildiz_flutter/view/splash/cubit/splash_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/get.dart';
 import 'package:kartal/kartal.dart';
 
 import '../../../product/constants/image_constants.dart';
 
-@RoutePage<String>()
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
 
@@ -90,7 +89,8 @@ class _SplashViewState extends State<SplashView>
   Future<void> _openloginOrHomePage(DateTime from, BuildContext context) {
     return Future.delayed(
         Duration(seconds: delayThreeSeconds(from, DateTime.now())), () {
-      context.router.replaceNamed(AppRoute.login);
+      //context.router.replaceNamed(AppRoute.login);
+      Get.toNamed('/login');
     });
   }
 

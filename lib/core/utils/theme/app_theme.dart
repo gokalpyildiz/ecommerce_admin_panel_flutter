@@ -224,11 +224,11 @@ class AppTheme {
 
   AppTheme._();
 
-  static init() {
+  static void init() {
     initTextStyle();
   }
 
-  static initTextStyle() {
+  static void initTextStyle() {
     MyTextStyle.changeFontFamily(GoogleFonts.ibmPlexSans);
     MyTextStyle.changeDefaultFontWeight({
       100: FontWeight.w100,
