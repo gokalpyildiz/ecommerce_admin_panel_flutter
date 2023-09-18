@@ -1,8 +1,9 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:bloc/bloc.dart';
-import 'package:ecommerce_yildiz_flutter/product/navigator/app_router_handler.dart';
+import 'package:ecommerce_yildiz_flutter/product/navigator/auto_route/app_router_handler.dart';
+import 'package:ecommerce_yildiz_flutter/product/navigator/go_router/go_app_router.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../core/utils/widgets/validator/my_form_validator.dart';
 import '../../../core/utils/widgets/validator/my_validators.dart';
@@ -62,7 +63,9 @@ class LoginCubit extends Cubit<LoginState> {
         // Get.toNamed(
         //   nextUrl,
         // );
-        context.router.replaceNamed(AppRoute.dashboard);
+        //context.router.replaceNamed(AppRoute.dashboard);
+        //context.replaceNamed(GoAppRoute.dashboard);
+        context.replace(GoAppRoute.dashboard);
       }
       emit(state.copyWith(loading: false));
       //loading = false;
@@ -70,6 +73,8 @@ class LoginCubit extends Cubit<LoginState> {
       //setState(() {});
     }
     emit(state.copyWith(loading: false));
-    context.router.replaceNamed(AppRoute.dashboard);
+    //context.router.replaceNamed(AppRoute.dashboard);
+    //context.replaceNamed(GoAppRoute.dashboard);
+    context.replace(GoAppRoute.dashboard);
   }
 }

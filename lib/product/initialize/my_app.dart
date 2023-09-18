@@ -1,9 +1,10 @@
+import 'package:ecommerce_yildiz_flutter/product/navigator/go_router/go_app_router.dart';
 import 'package:flutter/material.dart';
 
 import '../../core/utils/theme/app_style.dart';
 import '../constants/app_constants.dart';
 import '../constants/string_constants.dart';
-import '../navigator/app_router_handler.dart';
+import '../navigator/auto_route/app_router_handler.dart';
 import '../utility/translation/translation_manager.dart';
 import 'app_builder.dart';
 import 'app_dependency_injection.dart';
@@ -24,18 +25,17 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
-    return TranslationManager(
-      child: MaterialApp.router(
-        debugShowCheckedModeBanner: AppConstants.debugShowCheckedModeBanner,
-        builder: (context, child) => AppBuilder(child).build(),
-        title: StringConstants.appName,
-        //theme: AppTheme(context).theme.copyWith(useMaterial3: true),
-        theme: AppTheme.lightTheme.copyWith(useMaterial3: true),
-        darkTheme: AppTheme.darkTheme,
-        routerConfig: AppDependencyInjection.instance
-            .locator<AppRouterHandler>()
-            .config(),
-      ),
+    return MaterialApp.router(
+      debugShowCheckedModeBanner: AppConstants.debugShowCheckedModeBanner,
+      builder: (context, child) => AppBuilder(child).build(),
+      title: StringConstants.appName,
+      //theme: AppTheme(context).theme.copyWith(useMaterial3: true),
+      theme: AppTheme.lightTheme.copyWith(useMaterial3: true),
+      darkTheme: AppTheme.darkTheme,
+      // routerConfig: AppDependencyInjection.instance
+      //     .locator<AppRouterHandler>()
+      //     .config(),
+      routerConfig: GoAppRoute.routes,
     );
   }
 

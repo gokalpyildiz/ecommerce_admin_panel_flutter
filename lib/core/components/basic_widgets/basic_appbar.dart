@@ -1,5 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:auto_route/auto_route.dart';
+// import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 class CustomAppbar extends StatefulWidget implements PreferredSizeWidget {
@@ -10,7 +10,7 @@ class CustomAppbar extends StatefulWidget implements PreferredSizeWidget {
     this.titleCenter,
     this.onPressedBackButton,
     this.popIcon,
-    this.popIconNavigate,
+    //this.popIconNavigate,
     this.actionWidgets,
     this.backButtonVisible = false,
     this.visitId,
@@ -24,7 +24,7 @@ class CustomAppbar extends StatefulWidget implements PreferredSizeWidget {
   final bool? titleCenter;
   final Function? onPressedBackButton;
   final Widget? popIcon;
-  final AutoRoute? popIconNavigate;
+  //final AutoRoute? popIconNavigate;
   final List<Widget>? actionWidgets;
   final bool backButtonVisible;
   final int? visitId;

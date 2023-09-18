@@ -1,5 +1,6 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:kartal/kartal.dart';
 
 import '../theme/admin_theme.dart';
 import 'my_dashed_divider.dart';
@@ -60,7 +61,8 @@ mixin UIMixin {
   //todo üstteki şekilde generic yapılmalı.
   Widget getBackButton(BuildContext context) {
     return InkWell(
-      onTap: context.back,
+      //onTap: context.back,
+      onTap: Navigator.of(context).pop,
       child: Center(
         child: Icon(
           Icons.chevron_left_rounded,

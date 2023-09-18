@@ -1,5 +1,6 @@
-import 'package:auto_route/auto_route.dart';
+import 'package:ecommerce_yildiz_flutter/product/navigator/go_router/go_app_router.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 
@@ -15,7 +16,7 @@ import '../../../../core/utils/widgets/my_spacing.dart';
 import '../../../../core/utils/widgets/my_text.dart';
 import '../../../../core/utils/widgets/ui_mixin.dart';
 import '../../../constants/image_constants.dart';
-import '../../../navigator/app_router.dart';
+import '../../../navigator/auto_route/app_router.dart';
 import '../../../services/url_services.dart';
 import 'menu_item.dart';
 import 'menu_widget.dart';
@@ -85,7 +86,8 @@ class _LeftBarState extends State<LeftBar>
                       onTap: () {
                         //Get.toNamed('/dashboard');
                         //todo .pushNamed ya da .push da olabilir.
-                        context.router.replaceNamed(AppRoute.dashboard);
+                        //context.router.replaceNamed(AppRoute.dashboard);
+                        context.replace(GoAppRoute.dashboard);
                       },
                       child: Image.asset(
                         //Images.logoIcon,
@@ -129,7 +131,7 @@ class _LeftBarState extends State<LeftBar>
                     title: DateTime.now().millisecond.toString(),
                     isCondensed: isCondensed,
                     //route: '/dashboard',
-                    route: AppRoute.dashboard,
+                    route: GoAppRoute.dashboard,
                   ),
                   //labelWidget("apps".tr()),
 
@@ -159,31 +161,31 @@ class _LeftBarState extends State<LeftBar>
                         //title: "Members",
                         //route: '/contacts/members',
                         title: 'Ürün Havuzu',
-                        route: AppRoute.productPool,
+                        route: GoAppRoute.productPool,
                         isCondensed: widget.isCondensed,
                       ),
                       MenuItem(
                         // title: "profile".tr(),
                         // route: '/contacts/profile',
                         title: 'Ürün Özellikleri',
-                        route: AppRoute.productAttributes,
+                        route: GoAppRoute.productAttributes,
                         isCondensed: widget.isCondensed,
                       ),
                       MenuItem(
                         // title: "Edit Profile",
                         // route: '/contacts/edit-profile',
                         title: 'Ürün Özellik Setleri',
-                        route: AppRoute.productAttributesSet,
+                        route: GoAppRoute.productAttributesSet,
                         isCondensed: widget.isCondensed,
                       ),
                       MenuItem(
                         title: 'Fiyat Listesi',
-                        route: AppRoute.priceList,
+                        route: GoAppRoute.priceList,
                         isCondensed: widget.isCondensed,
                       ),
                       MenuItem(
                         title: 'Stok Listesi',
-                        route: AppRoute.stockList,
+                        route: GoAppRoute.stockList,
                         isCondensed: widget.isCondensed,
                       ),
                     ],

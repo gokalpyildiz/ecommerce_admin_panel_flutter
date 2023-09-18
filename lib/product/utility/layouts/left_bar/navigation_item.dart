@@ -1,5 +1,5 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../core/utils/widgets/my_container.dart';
 import '../../../../core/utils/widgets/my_spacing.dart';
@@ -35,7 +35,9 @@ class _NavigationItemState extends State<NavigationItem> with UIMixin {
       onTap: () {
         if (widget.route != null) {
           //Get.toNamed(widget.route!);
-          context.router.pushNamed(widget.route!);
+          //context.router.pushNamed(widget.route!);
+          //context.goNamed(widget.route!);
+          context.go(widget.route!);
         }
       },
       child: MouseRegion(
