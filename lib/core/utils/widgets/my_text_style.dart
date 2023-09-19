@@ -51,7 +51,7 @@ typedef TextStyle GoogleFontFunction({
 class MyTextStyle {
   static GoogleFontFunction _fontFamily = GoogleFonts.ibmPlexSans;
 
-  static changeFontFamily(GoogleFontFunction value) {
+  static void changeFontFamily(GoogleFontFunction value) {
     _fontFamily = value;
   }
 
@@ -513,7 +513,7 @@ class MyTextStyle {
   static Map<int, FontWeight> get defaultFontWeight => _defaultFontWeight;
 
   //-------------------Reset Font Styles---------------------------------
-  static resetFontStyles() {
+  static void resetFontStyles() {
     _fontFamily = GoogleFonts.ibmPlexSans;
 
     _defaultFontWeight = {

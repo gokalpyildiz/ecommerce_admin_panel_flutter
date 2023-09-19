@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../theme/admin_theme.dart';
+import '../theme/app_theme.dart';
 import 'my_dashed_divider.dart';
 
 mixin UIMixin {
@@ -23,8 +24,7 @@ mixin UIMixin {
         borderSide: BorderSide(
           width: 1,
           strokeAlign: 0,
-          //todo tema hazır olunca değişecek
-          //color: theme.colorScheme.onBackground.withAlpha(80),
+          color: theme.colorScheme.onBackground.withAlpha(80),
         ),
       );
 
@@ -32,8 +32,7 @@ mixin UIMixin {
     borderRadius: BorderRadius.all(Radius.circular(4)),
     borderSide: BorderSide(
       width: 1,
-      //todo tema hazır olunca değişecek
-      //color: theme.colorScheme.primary,
+      color: theme.colorScheme.primary,
     ),
   );
 
@@ -50,8 +49,7 @@ mixin UIMixin {
         borderRadius: BorderRadius.all(Radius.circular(radius)),
         borderSide: BorderSide(
           width: 1,
-          //todo tema hazır olunca değişecek
-          //color: theme.colorScheme.primary,
+          color: theme.colorScheme.primary,
         ),
       );
 
@@ -67,8 +65,7 @@ mixin UIMixin {
         child: Icon(
           Icons.chevron_left_rounded,
           size: 26,
-          //todo theme hazır olunca değişecek
-          //color: context.colorScheme.onBackground,
+          color: theme.colorScheme.onBackground,
         ),
       ),
     );
@@ -78,8 +75,7 @@ mixin UIMixin {
     return MyDashedDivider(
         dashWidth: 6,
         dashSpace: 4,
-        //todo theme hazır olunca değişecek
-        //color: theme.colorScheme.onBackground.withAlpha(64),
+        color: theme.colorScheme.onBackground.withAlpha(64),
         height: 0.5);
   }
 }

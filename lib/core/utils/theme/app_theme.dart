@@ -549,7 +549,7 @@ class AppTheme {
     return createThemeM3(themeType, Color(0xff2e87a6));
   }
 
-  static resetThemeData() {
+  static void resetThemeData() {
     nftTheme = getNFTTheme();
 
     estateTheme = AppTheme.themeType == ThemeType.light

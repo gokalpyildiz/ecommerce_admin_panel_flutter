@@ -53,14 +53,14 @@ class _CustomPopupMenuState extends State<CustomPopupMenu>
     }
   }
 
-  findButton() {
+  void findButton() {
     RenderBox? renderBox =
         _key.currentContext!.findRenderObject() as RenderBox?;
     buttonSize = renderBox!.size;
     buttonPosition = renderBox.localToGlobal(Offset.zero);
   }
 
-  closeMenu() {
+  void closeMenu() {
     _overlayEntry?.remove();
     _overlayEntry1?.remove();
     // if(_animationController.)
@@ -68,7 +68,7 @@ class _CustomPopupMenuState extends State<CustomPopupMenu>
     isMenuOpen = false;
   }
 
-  openMenu() {
+  void openMenu() {
     findButton();
     _overlayEntry = _overlayEntryBuilder();
     _overlayEntry1 = _overlayEntryBuilder1();

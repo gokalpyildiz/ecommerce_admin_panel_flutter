@@ -2,8 +2,6 @@
 
 import 'package:get_it/get_it.dart';
 
-import '../navigator/auto_route/app_router_handler.dart';
-
 class AppDependencyInjection {
   AppDependencyInjection._init();
   static final AppDependencyInjection _instance =

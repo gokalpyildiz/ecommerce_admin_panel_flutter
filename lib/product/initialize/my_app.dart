@@ -4,12 +4,7 @@ import 'package:get/get.dart';
 
 import '../../core/utils/theme/app_style.dart';
 import '../../core/utils/theme/theme_customizer.dart';
-import '../constants/app_constants.dart';
-import '../constants/string_constants.dart';
-import '../navigator/auto_route/app_router_handler.dart';
 import '../utility/translation/translation_manager.dart';
-import 'app_builder.dart';
-import 'app_dependency_injection.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
@@ -41,8 +36,8 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
       // ),
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: AppTheme.lightTheme,
-        darkTheme: AppTheme.darkTheme,
+        // theme: AppTheme.lightTheme,
+        // darkTheme: AppTheme.darkTheme,
         themeMode: ThemeCustomizer.instance.theme,
         //navigatorKey: NavigationService.navigatorKey,
         initialRoute: "/splash",

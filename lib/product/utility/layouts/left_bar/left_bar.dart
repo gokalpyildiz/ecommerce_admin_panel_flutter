@@ -78,7 +78,6 @@ class _LeftBarState extends State<LeftBar>
                   InkWell(
                       onTap: () {
                         Get.toNamed(AppPages.dashboard);
-                        //todo .pushNamed ya da .push da olabilir.
                         //context.router.replaceNamed(AppRoute.dashboard);
                       },
                       child: Image.asset(
