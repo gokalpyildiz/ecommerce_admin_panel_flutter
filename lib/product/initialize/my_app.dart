@@ -2,7 +2,6 @@ import 'package:ecommerce_yildiz_flutter/product/navigator/getx_router/app_pages
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../core/utils/theme/app_style.dart';
 import '../../core/utils/theme/theme_customizer.dart';
 import '../utility/translation/translation_manager.dart';
 

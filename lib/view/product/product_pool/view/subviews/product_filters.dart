@@ -50,16 +50,19 @@ class ProductFilters extends StatelessWidget {
               ],
             ),
             SizedBox(height: 20),
-            Wrap(
-              runSpacing: 20,
-              spacing: 20,
-              children: [
-                for (var item in state.selectedFilterIndexes ?? [])
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: buildFilter(state.filterList![item as int]),
-                  ),
-              ],
+            Container(
+              width: double.infinity,
+              child: Wrap(
+                runSpacing: 20,
+                spacing: 20,
+                children: [
+                  for (var item in state.selectedFilterIndexes ?? [])
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: buildFilter(state.filterList![item as int]),
+                    ),
+                ],
+              ),
             ),
           ]),
         );

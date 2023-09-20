@@ -14,11 +14,11 @@ class ProductPoolCubit extends Cubit<ProductPoolState> {
   void init() {
     var filteredList = [
       'Fotoğraflar',
-      'Tedarikçi Firmalar',
       'Sku',
-      'Durum',
-      'ürün Adı',
-      'Tedarikçi Ürün'
+      'Base Kod',
+      'Ürün Adı',
+      'Özellik Seti',
+      'Durum'
     ];
     var selectedFilterIndexes = [0, 1, 2, 3, 4, 5];
     var data = getData();
@@ -42,9 +42,17 @@ class ProductPoolCubit extends Cubit<ProductPoolState> {
   }
 
   List<DataColumn> getDataColumns() {
-    var dataColumns = List<DataColumn>.from(state.selectedFilterIndexes!
-        .map((e) => DataColumn(label: MyText(state.filterList?[e] ?? ''))));
+    // var dataColumns = List<DataColumn>.from(state.selectedFilterIndexes!.map(
+    //     (e) =>
+    //         DataColumn(label: MyText.titleLarge(state.filterList?[e] ?? ''))));
+    // return dataColumns;
+    var dataColumns = List<DataColumn>.from(
+        state.filterList!.map((e) => DataColumn(label: MyText.titleLarge(e))));
     return dataColumns;
+  }
+
+  DataTableSource getDataSource() {
+    return MyData(getData(), state.filterList ?? []);
   }
 
   List<Product> getData() {

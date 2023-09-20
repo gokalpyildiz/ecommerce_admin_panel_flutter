@@ -17,10 +17,13 @@ class ProductTable extends StatelessWidget {
       builder: (context, state) {
         var cubit = context.read<ProductPoolCubit>();
         if (state.data == null) return Center(child: MyText('Ürün yok'));
+        //var source = state.data!;
+        var source = cubit.getDataSource();
+        var column = cubit.getDataColumns();
         return PaginatedDataTable(
-          header: MyText.headlineLarge('Ürün Havuzu'),
-          columns: cubit.getDataColumns(),
-          source: state.data!,
+          header: MyText.headlineMedium('Ürün Havuzu (3 Ürün Bulundu)'),
+          columns: column,
+          source: source,
           columnSpacing: 110,
           horizontalMargin: 28,
           rowsPerPage: 10,
@@ -47,37 +50,82 @@ class MyData extends DataTableSource with UIMixin {
 
   @override
   DataRow getRow(int index) {
+    //return DataRow(cells: generateDataCell(data[index])
     var url = data[index].images!.first;
-    return DataRow(
-      cells: [
-        DataCell(
-          Image.network(
-            url,
-            fit: BoxFit.cover,
-            loadingBuilder: (context, child, loadingProgress) {
-              if (loadingProgress == null) return child;
-              return Center(
-                child: CircularProgressIndicator(
-                  value: loadingProgress.expectedTotalBytes != null
-                      ? loadingProgress.cumulativeBytesLoaded /
-                          loadingProgress.expectedTotalBytes!
-                      : null,
-                ),
-              );
-            },
-            errorBuilder: (context, error, stackTrace) {
-              return MyText('No image');
-            },
-          ),
+    return DataRow(cells: [
+      //if (selectedFilters.contains('Fotoğraflar'))
+      DataCell(
+        Image.network(
+          url,
+          fit: BoxFit.cover,
+          loadingBuilder: (context, child, loadingProgress) {
+            if (loadingProgress == null) return child;
+            return Center(
+              child: CircularProgressIndicator(
+                value: loadingProgress.expectedTotalBytes != null
+                    ? loadingProgress.cumulativeBytesLoaded /
+                        loadingProgress.expectedTotalBytes!
+                    : null,
+              ),
+            );
+          },
+          errorBuilder: (context, error, stackTrace) {
+            return MyText('No image');
+          },
         ),
-        //if (selectedFilters.contains('Sku'))
-        DataCell(MyText.titleMedium(data[index].barcode.toString())),
-        DataCell(MyText.titleMedium(data[index].baseCode.toString())),
-        DataCell(MyText.titleMedium(data[index].name ?? 'null')),
-        DataCell(MyText.titleMedium(
-            data[index].productFeature?.featureName ?? 'null')),
-        DataCell(MyText.titleMedium((data[index].state ?? '-').toString())),
-      ],
-    );
+      ),
+      //if (selectedFilters.contains('Sku'))
+      DataCell(MyText.titleMedium(data[index].barcode.toString())),
+      //if (selectedFilters.contains('Base Kod'))
+      DataCell(MyText.titleMedium(data[index].baseCode.toString())),
+      //if (selectedFilters.contains('Ürün Adı'))
+      DataCell(MyText.titleMedium(data[index].name ?? 'null')),
+      //if (selectedFilters.contains('Özellik Seti'))
+      DataCell(MyText.titleMedium(
+          data[index].productFeature?.featureName ?? 'null')),
+      //if (selectedFilters.contains('Durum'))
+      DataCell(MyText.titleMedium((data[index].state ?? '-').toString())),
+    ]);
+
+    //);
+  }
+
+  List<DataCell> generateDataCell(Product product) {
+    var url = product.images!.first;
+    var data = [
+      //if (selectedFilters.contains('Fotoğraflar'))
+      DataCell(
+        Image.network(
+          url,
+          fit: BoxFit.cover,
+          loadingBuilder: (context, child, loadingProgress) {
+            if (loadingProgress == null) return child;
+            return Center(
+              child: CircularProgressIndicator(
+                value: loadingProgress.expectedTotalBytes != null
+                    ? loadingProgress.cumulativeBytesLoaded /
+                        loadingProgress.expectedTotalBytes!
+                    : null,
+              ),
+            );
+          },
+          errorBuilder: (context, error, stackTrace) {
+            return MyText('No image');
+          },
+        ),
+      ),
+      //if (selectedFilters.contains('Sku'))
+      DataCell(MyText.titleMedium(product.barcode.toString())),
+      //if (selectedFilters.contains('Base Kod'))
+      DataCell(MyText.titleMedium(product.baseCode.toString())),
+      //if (selectedFilters.contains('Ürün Adı'))
+      DataCell(MyText.titleMedium(product.name ?? 'null')),
+      //if (selectedFilters.contains('Özellik Seti'))
+      DataCell(
+          MyText.titleMedium(product.productFeature?.featureName ?? 'null')),
+      //if (selectedFilters.contains('Durum'))
+      DataCell(MyText.titleMedium((product.state ?? '-').toString())),
+    ];
+    return data;
   }
 }
