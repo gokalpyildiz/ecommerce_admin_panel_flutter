@@ -98,7 +98,6 @@ class _DashBoardViewState extends State<DashBoardView> with UIMixin {
 
   Container _top() {
     return Container(
-      //color: Colors.grey[200],
       height: 80,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

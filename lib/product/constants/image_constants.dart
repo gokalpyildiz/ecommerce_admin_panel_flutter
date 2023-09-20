@@ -20,4 +20,5 @@ class ImagePath {
 
   final appIcon = 'ic_app_logo'.toPng;
   final loginImage = 'login_logo'.toJpg;
+  final fileImage = 'file_manager'.toJpg;
 }
