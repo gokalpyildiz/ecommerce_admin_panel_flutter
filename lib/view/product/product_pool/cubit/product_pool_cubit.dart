@@ -4,7 +4,7 @@ import 'package:ecommerce_yildiz_flutter/view/product/product_pool/model/product
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 
-import '../view/subviews/data_table.dart';
+import '../view/subviews/product_data_table.dart';
 
 part 'product_pool_state.dart';
 
@@ -24,7 +24,7 @@ class ProductPoolCubit extends Cubit<ProductPoolState> {
     var data = getData();
     emit(state.copyWith(
         filterList: filteredList,
-        data: MyData(data, filteredList),
+        data: MyProductData(data, filteredList),
         selectedFilterIndexes: selectedFilterIndexes));
   }
 
@@ -38,7 +38,7 @@ class ProductPoolCubit extends Cubit<ProductPoolState> {
     emit(state.copyWith(
         selectedFilterIndexes: selectedFilterIndexes,
         //data: MyData(getData(), newList)));
-        data: MyData(getData(), state.filterList ?? [])));
+        data: MyProductData(getData(), state.filterList ?? [])));
   }
 
   List<DataColumn> getDataColumns() {
@@ -47,12 +47,12 @@ class ProductPoolCubit extends Cubit<ProductPoolState> {
     //         DataColumn(label: MyText.titleLarge(state.filterList?[e] ?? ''))));
     // return dataColumns;
     var dataColumns = List<DataColumn>.from(
-        state.filterList!.map((e) => DataColumn(label: MyText.titleLarge(e))));
+        state.filterList!.map((e) => DataColumn(label: MyText.titleMedium(e))));
     return dataColumns;
   }
 
   DataTableSource getDataSource() {
-    return MyData(getData(), state.filterList ?? []);
+    return MyProductData(getData(), state.filterList ?? []);
   }
 
   List<Product> getData() {

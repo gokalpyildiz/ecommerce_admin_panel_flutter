@@ -33,11 +33,11 @@ class ProductTable extends StatelessWidget {
   }
 }
 
-class MyData extends DataTableSource with UIMixin {
+class MyProductData extends DataTableSource with UIMixin {
   List<Product> data = [];
   List<String> selectedFilters = [];
 
-  MyData(this.data, this.selectedFilters);
+  MyProductData(this.data, this.selectedFilters);
 
   @override
   bool get isRowCountApproximate => false;
@@ -75,16 +75,16 @@ class MyData extends DataTableSource with UIMixin {
         ),
       ),
       //if (selectedFilters.contains('Sku'))
-      DataCell(MyText.titleMedium(data[index].barcode.toString())),
+      DataCell(MyText.titleSmall(data[index].barcode.toString())),
       //if (selectedFilters.contains('Base Kod'))
-      DataCell(MyText.titleMedium(data[index].baseCode.toString())),
+      DataCell(MyText.titleSmall(data[index].baseCode.toString())),
       //if (selectedFilters.contains('Ürün Adı'))
-      DataCell(MyText.titleMedium(data[index].name ?? 'null')),
+      DataCell(MyText.titleSmall(data[index].name ?? 'null')),
       //if (selectedFilters.contains('Özellik Seti'))
-      DataCell(MyText.titleMedium(
-          data[index].productFeature?.featureName ?? 'null')),
+      DataCell(
+          MyText.titleSmall(data[index].productFeature?.featureName ?? 'null')),
       //if (selectedFilters.contains('Durum'))
-      DataCell(MyText.titleMedium((data[index].state ?? '-').toString())),
+      DataCell(MyText.titleSmall((data[index].state ?? '-').toString())),
     ]);
 
     //);

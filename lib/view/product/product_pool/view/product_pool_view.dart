@@ -7,7 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/utils/widgets/my_spacing.dart';
 import '../../../../core/utils/widgets/ui_mixin.dart';
 import '../../../../product/utility/layouts/responsive.dart';
-import 'subviews/data_table.dart';
+import 'subviews/product_data_table.dart';
 import 'subviews/product_appbar.dart';
 import 'subviews/product_filters.dart';
 
