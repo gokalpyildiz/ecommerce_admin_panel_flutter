@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import '../../../view/auth/view/login_view.dart';
 import '../../../view/dashboard/view/dashboard_view.dart';
 import '../../../view/product/add_product/view/add_product_view.dart';
+import '../../../view/product/add_product_attribute/view/add_product_attribute_view.dart';
 import '../../../view/product/price_list/view/price_list_page.dart';
 import '../../../view/product/product_attributes/view/product_attributes_view.dart';
 import '../../../view/product/product_pool/view/product_pool_view.dart';
@@ -23,6 +24,7 @@ class AppPages {
   static const productAttributesSet = '/products/productAttributesSet';
   static const stockList = '/stockList';
   static const addProduct = '/products/addProduct';
+  static const addProductAttribute = '/products/addProductAttribute';
 
   static final routes = <GetPage<dynamic>>[
     GetPage(
@@ -81,6 +83,12 @@ class AppPages {
     GetPage(
       name: addProduct,
       page: () => const AddProductView(),
+      transition: Transition.noTransition,
+      //middlewares: [AuthMiddleware()],
+    ),
+    GetPage(
+      name: addProductAttribute,
+      page: () => const AddProductAttributeView(),
       transition: Transition.noTransition,
       //middlewares: [AuthMiddleware()],
     ),

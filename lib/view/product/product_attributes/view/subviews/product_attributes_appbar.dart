@@ -54,7 +54,7 @@ class ProductAttributesAppbar extends StatelessWidget with UIMixin {
                   MyButton(
                     elevation: 0,
                     onPressed: () {
-                      Get.toNamed(AppPages.addProduct);
+                      Get.toNamed(AppPages.addProductAttribute);
                     },
                     padding: MySpacing.xy(12, 16),
                     //backgroundColor: contentTheme.primary,

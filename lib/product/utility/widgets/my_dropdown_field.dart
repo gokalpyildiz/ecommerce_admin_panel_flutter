@@ -24,7 +24,7 @@ class MyDropDown<T> extends StatelessWidget with UIMixin {
   Widget build(BuildContext context) {
     return DropdownButtonFormField<T>(
       dropdownColor: theme.colorScheme.background,
-      menuMaxHeight: 200,
+      //menuMaxHeight: 200,
       items: modelList.map((T? value) {
         return DropdownMenuItem<T>(
           value: value,
