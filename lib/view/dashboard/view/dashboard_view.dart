@@ -26,33 +26,32 @@ class _DashBoardViewState extends State<DashBoardView> with UIMixin {
     return BlocProvider(
       create: (context) => DashboardCubit(context),
       child: Layout(
-          child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          //mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(bottom: 20.0),
-              child: _top(),
-            ),
-            MyFlex(
-              children: [
-                MyFlexItem(sizes: "lg-6", child: _statistics()),
-                //MyFlexItem(sizes: "lg-6", child: Text('sdafds'))
-                MyFlexItem(
-                  sizes: "lg-6",
-                  child: Padding(
-                    padding: MySpacing.x(flexSpacing / 2),
-                    child: CircleOrderChart(),
-                  ),
+          child: Column(
+        //mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 20).copyWith(bottom: 20),
+            child: _top(),
+          ),
+          Divider(),
+          MyFlex(
+            children: [
+              MyFlexItem(sizes: "lg-6", child: _statistics()),
+              //MyFlexItem(sizes: "lg-6", child: Text('sdafds'))
+              MyFlexItem(
+                sizes: "lg-6",
+                child: Padding(
+                  padding: MySpacing.x(flexSpacing / 2),
+                  child: CircleOrderChart(),
                 ),
-              ],
-            ),
-            SizedBox(height: 20),
-            LineChart(),
-          ],
-        ),
+              ),
+            ],
+          ),
+          SizedBox(height: 20),
+          LineChart(),
+        ],
       )),
     );
   }
@@ -99,7 +98,7 @@ class _DashBoardViewState extends State<DashBoardView> with UIMixin {
 
   Container _top() {
     return Container(
-      color: Colors.grey[200],
+      //color: Colors.grey[200],
       height: 80,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -112,7 +111,7 @@ class _DashBoardViewState extends State<DashBoardView> with UIMixin {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    MyText.titleMedium(
+                    MyText.titleLarge(
                       "E-commerce",
                     ),
                     MyText(

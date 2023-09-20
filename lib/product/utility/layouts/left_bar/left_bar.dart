@@ -84,7 +84,7 @@ class _LeftBarState extends State<LeftBar>
                         //Images.logoIcon,
                         ImagePath.instance.appIcon,
                         //height: widget.isCondensed ? 24 : 32,
-                        height: widget.isCondensed ? 50 : 32,
+                        //height: widget.isCondensed ? 50 : 32,
                         //color: contentTheme.primary,
                       )),
                   if (!widget.isCondensed)

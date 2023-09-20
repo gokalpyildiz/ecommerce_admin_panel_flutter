@@ -128,7 +128,8 @@ class _LayoutState extends State<Layout> with LayoutMixin {
                 bottom: 0,
                 child: SingleChildScrollView(
                   padding:
-                      MySpacing.fromLTRB(0, 58 + flexSpacing, 0, flexSpacing),
+                      //MySpacing.fromLTRB(0, 58 + flexSpacing, 0, flexSpacing),
+                      MySpacing.fromLTRB(0, flexSpacing, 0, flexSpacing),
                   key: scrollKey,
                   child: widget.child,
                 ),

@@ -28,13 +28,13 @@ mixin UIMixin {
         ),
       );
 
-  OutlineInputBorder focusedInputBorder = OutlineInputBorder(
-    borderRadius: BorderRadius.all(Radius.circular(4)),
-    borderSide: BorderSide(
-      width: 1,
-      color: theme.colorScheme.primary,
-    ),
-  );
+  OutlineInputBorder get focusedInputBorder => OutlineInputBorder(
+        borderRadius: BorderRadius.all(Radius.circular(4)),
+        borderSide: BorderSide(
+          width: 1,
+          color: theme.colorScheme.primary,
+        ),
+      );
 
   OutlineInputBorder generateOutlineInputBorder({double radius = 4}) =>
       OutlineInputBorder(
