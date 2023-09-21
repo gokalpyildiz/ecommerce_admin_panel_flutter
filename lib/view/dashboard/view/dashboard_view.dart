@@ -1,3 +1,4 @@
+import 'package:ecommerce_yildiz_flutter/core/utils/widgets/my_container.dart';
 import 'package:ecommerce_yildiz_flutter/core/utils/widgets/my_flex.dart';
 import 'package:ecommerce_yildiz_flutter/core/utils/widgets/my_flex_item.dart';
 import 'package:ecommerce_yildiz_flutter/core/utils/widgets/ui_mixin.dart';
@@ -36,6 +37,7 @@ class _DashBoardViewState extends State<DashBoardView> with UIMixin {
             child: _top(),
           ),
           Divider(),
+          SizedBox(height: 20),
           MyFlex(
             children: [
               MyFlexItem(sizes: "lg-6", child: _statistics()),
@@ -56,14 +58,14 @@ class _DashBoardViewState extends State<DashBoardView> with UIMixin {
     );
   }
 
-  Column _statistics() {
+  Widget _statistics() {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             _box('Toplam Satış', 'Toplam Satış Tutarı'),
             MySpacing.width(30),
@@ -72,8 +74,8 @@ class _DashBoardViewState extends State<DashBoardView> with UIMixin {
         ),
         MySpacing.height(30),
         Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             _box('Toplam Satış', 'Toplam Satış Tutarı'),
             MySpacing.width(30),
@@ -84,11 +86,43 @@ class _DashBoardViewState extends State<DashBoardView> with UIMixin {
     );
   }
 
+  Widget _statistics2() {
+    return MyFlex(
+      // wrapAlignment: WrapAlignment.center,
+      // wrapCrossAlignment: WrapCrossAlignment.center,
+      children: [
+        MyFlexItem(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              _box('Toplam Satış', '341'),
+              MySpacing.width(30),
+              _box('Toplam Sipariş', '1243')
+            ],
+          ),
+        ),
+        //MySpacing.height(30),
+        MyFlexItem(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              _box('Toplam Satış', '120.000 TL'),
+              MySpacing.width(30),
+              _box('Toplam Sipariş', '1243')
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
   Widget _box(String title, String value) {
-    return Container(
+    return MyContainer.bordered(
       width: 200,
       height: 200,
-      color: Colors.blue.shade100,
+      //color: Colors.blue.shade100,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [MyText(title), MyText(value)],
