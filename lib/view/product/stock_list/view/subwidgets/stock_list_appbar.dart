@@ -54,7 +54,7 @@ class StockListAppbar extends StatelessWidget with UIMixin {
                   MyButton(
                     elevation: 0,
                     onPressed: () {
-                      Get.toNamed(AppPages.addProductAttribute);
+                      Get.toNamed(AppPages.addStokList);
                     },
                     padding: MySpacing.xy(12, 16),
                     //backgroundColor: contentTheme.primary,

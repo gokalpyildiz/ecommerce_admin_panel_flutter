@@ -6,6 +6,7 @@ import '../../../view/dashboard/view/dashboard_view.dart';
 import '../../../view/product/add_price_list/view/add_pricelist_view.dart';
 import '../../../view/product/add_product/view/add_product_view.dart';
 import '../../../view/product/add_product_attribute/view/add_product_attribute_view.dart';
+import '../../../view/product/add_stock_list/view/add_stock_list.dart';
 import '../../../view/product/price_list/view/price_list_view.dart';
 import '../../../view/product/product_attributes/view/product_attributes_view.dart';
 import '../../../view/product/product_attributes_set/view/product_attributes_set_view.dart';
@@ -30,6 +31,7 @@ class AppPages {
   static const addProductAttribute = '/products/addProductAttribute';
   static const addPriceList = '/products/addPriceList';
   static const jaliriPriceList = '/products/jaliriPriceList';
+  static const addStokList = '/products/addStockList';
 
   static final routes = <GetPage<dynamic>>[
     GetPage(
@@ -106,6 +108,12 @@ class AppPages {
     GetPage(
       name: jaliriPriceList,
       page: () => const JaliriPriceListView(),
+      transition: Transition.noTransition,
+      //middlewares: [AuthMiddleware()],
+    ),
+    GetPage(
+      name: addStokList,
+      page: () => const AddStockListView(),
       transition: Transition.noTransition,
       //middlewares: [AuthMiddleware()],
     ),
