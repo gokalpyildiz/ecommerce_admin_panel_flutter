@@ -1,3 +1,4 @@
+import 'package:ecommerce_yildiz_flutter/view/product/price_list_jaliri/view/jaliri_price_list_view.dart';
 import 'package:get/get.dart';
 
 import '../../../view/auth/view/login_view.dart';
@@ -24,10 +25,11 @@ class AppPages {
   static const priceList = '/products/priceList';
   static const productAttributes = '/products/productAttributes';
   static const productAttributesSet = '/products/productAttributesSet';
-  static const stockList = '/stockList';
+  static const stockList = '/products/stockList';
   static const addProduct = '/products/addProduct';
   static const addProductAttribute = '/products/addProductAttribute';
   static const addPriceList = '/products/addPriceList';
+  static const jaliriPriceList = '/products/jaliriPriceList';
 
   static final routes = <GetPage<dynamic>>[
     GetPage(
@@ -98,6 +100,12 @@ class AppPages {
     GetPage(
       name: addPriceList,
       page: () => const AddPriceListView(),
+      transition: Transition.noTransition,
+      //middlewares: [AuthMiddleware()],
+    ),
+    GetPage(
+      name: jaliriPriceList,
+      page: () => const JaliriPriceListView(),
       transition: Transition.noTransition,
       //middlewares: [AuthMiddleware()],
     ),

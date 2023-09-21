@@ -21,11 +21,12 @@ class ProductAttributesFilters extends StatelessWidget {
         return MyContainer.bordered(
           color: Colors.white,
           marginAll: 20,
-          child: Column(children: [
+          child:
+              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                MyText.titleMedium('Filtreler'),
+                MyText.titleLarge('Filtreler'),
                 Padding(
                   padding: const EdgeInsets.only(right: 20.0),
                   child: Center(
@@ -49,6 +50,7 @@ class ProductAttributesFilters extends StatelessWidget {
                 ),
               ],
             ),
+            MyText.titleMedium('Seçili Filtreler'),
             SizedBox(height: 20),
             Container(
               width: double.infinity,
@@ -57,10 +59,7 @@ class ProductAttributesFilters extends StatelessWidget {
                 spacing: 20,
                 children: [
                   for (var item in state.selectedFilterIndexes ?? [])
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: buildFilter(state.filterList![item as int]),
-                    ),
+                    buildFilter(state.filterList![item as int]),
                 ],
               ),
             ),

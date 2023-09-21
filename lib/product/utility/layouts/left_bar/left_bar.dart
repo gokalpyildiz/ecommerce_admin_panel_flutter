@@ -176,6 +176,12 @@ class _LeftBarState extends State<LeftBar>
                         isCondensed: widget.isCondensed,
                       ),
                       MenuItem(
+                        title: 'Jaliri Fiyat Listesi',
+                        route: AppPages.jaliriPriceList,
+                        //route: AppRoute.priceList,
+                        isCondensed: widget.isCondensed,
+                      ),
+                      MenuItem(
                         title: 'Stok Listesi',
                         route: AppPages.stockList,
                         //route: AppRoute.stockList,

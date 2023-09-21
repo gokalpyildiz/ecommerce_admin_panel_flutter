@@ -6,21 +6,20 @@ import '../../../../../core/utils/widgets/my_container.dart';
 import '../../../../../core/utils/widgets/my_spacing.dart';
 import '../../../../../core/utils/widgets/my_text.dart';
 import '../../../../../product/utility/widgets/dialogs/show_dialogs.dart';
-import '../../cubit/product_pool_cubit.dart';
+import '../../cubit/jaliri_price_list_cubit.dart';
 
-class ProductFilters extends StatelessWidget {
-  const ProductFilters({
+class JaliriPriceListFilter extends StatelessWidget {
+  const JaliriPriceListFilter({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ProductPoolCubit, ProductPoolState>(
+    return BlocBuilder<JaliriPriceListCubit, JaliriPriceListState>(
       builder: (context, state) {
-        var cubit = context.read<ProductPoolCubit>();
+        var cubit = context.read<JaliriPriceListCubit>();
         return MyContainer.bordered(
           color: Colors.white,
-          marginAll: 20,
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Row(
