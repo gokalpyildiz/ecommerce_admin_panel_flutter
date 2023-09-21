@@ -20,7 +20,6 @@ class PriceListFilter extends StatelessWidget {
         var cubit = context.read<PriceListCubit>();
         return MyContainer.bordered(
           color: Colors.white,
-          marginAll: 20,
           child: Column(children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

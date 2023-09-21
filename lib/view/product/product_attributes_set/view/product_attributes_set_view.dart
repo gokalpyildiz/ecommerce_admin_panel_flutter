@@ -127,24 +127,20 @@ class ProductAttributesSetView extends StatelessWidget with UIMixin {
           SizedBox(height: 10),
           MyTextFormField(),
           SizedBox(height: 20),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              MyButton.small(
-                elevation: 0,
-                onPressed: () {
-                  Get.back();
-                },
-                padding: MySpacing.xy(12, 16),
-                backgroundColor: contentTheme.onPrimary,
-                borderRadiusAll: AppStyle.buttonRadius.medium,
-                child: MyText.bodyLarge(
-                  "Kaydet",
-                  color: contentTheme.onPrimary,
-                ),
-              ),
-            ],
+          MyButton.small(
+            elevation: 0,
+            onPressed: () {
+              Get.back();
+            },
+            padding: MySpacing.xy(12, 16),
+            //backgroundColor: contentTheme.onPrimary,
+            borderRadiusAll: AppStyle.buttonRadius.medium,
+            child: MyText.bodyLarge(
+              "Kaydet",
+              color: contentTheme.onPrimary,
+            ),
           ),
+          SizedBox(height: 20),
         ],
       ),
     );

@@ -23,7 +23,11 @@ class PriceListView extends StatelessWidget with UIMixin {
               child: Column(
         children: [
           PriceListAppbar(),
-          PriceListFilter(),
+          Padding(
+            padding: MySpacing.x(flexSpacing),
+            child: PriceListFilter(),
+          ),
+          SizedBox(height: 20),
           Padding(
             padding: MySpacing.x(flexSpacing),
             child: MyPriceListTable(),
