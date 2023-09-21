@@ -6,6 +6,7 @@ import '../../../view/product/add_product/view/add_product_view.dart';
 import '../../../view/product/add_product_attribute/view/add_product_attribute_view.dart';
 import '../../../view/product/price_list/view/price_list_page.dart';
 import '../../../view/product/product_attributes/view/product_attributes_view.dart';
+import '../../../view/product/product_attributes_set/view/product_attributes_set_view.dart';
 import '../../../view/product/product_pool/view/product_pool_view.dart';
 import '../../../view/product/stock_list/view/stock_list_view.dart';
 import '../../../view/splash/view/splash_view.dart';
@@ -70,7 +71,7 @@ class AppPages {
     ),
     GetPage(
       name: productAttributesSet,
-      page: () => const ProductAttributesView(),
+      page: () => const ProductAttributesSetView(),
       transition: Transition.noTransition,
       //middlewares: [AuthMiddleware()],
     ),
