@@ -23,22 +23,14 @@ class ProductPoolView extends StatelessWidget with UIMixin {
         child: Column(
           children: [
             ProductAppbar(),
-            _productPoolScreen(),
+            ProductFilters(),
+            Padding(
+              padding: MySpacing.x(flexSpacing),
+              child: ProductTable(),
+            )
           ],
         ),
       )),
-    );
-  }
-
-  Column _productPoolScreen() {
-    return Column(
-      children: [
-        ProductFilters(),
-        Padding(
-          padding: MySpacing.x(flexSpacing),
-          child: ProductTable(),
-        )
-      ],
     );
   }
 }
