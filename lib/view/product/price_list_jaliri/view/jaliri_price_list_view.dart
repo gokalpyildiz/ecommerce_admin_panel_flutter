@@ -7,9 +7,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/utils/widgets/my_spacing.dart';
 import '../../../../product/utility/layouts/responsive.dart';
 import '../cubit/jaliri_price_list_cubit.dart';
-import 'subviews/jaliri_price_list_appbar.dart';
-import 'subviews/jaliri_price_list_filter.dart';
-import 'subviews/my_jaliri_pricelist_table.dart';
+import 'subwidgets/jaliri_price_list_appbar.dart';
+import 'subwidgets/jaliri_price_list_filter.dart';
+import 'subwidgets/my_jaliri_pricelist_table.dart';
 
 class JaliriPriceListView extends StatelessWidget with UIMixin {
   const JaliriPriceListView({super.key});

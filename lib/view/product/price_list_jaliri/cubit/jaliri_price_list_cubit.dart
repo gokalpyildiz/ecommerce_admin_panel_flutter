@@ -5,8 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 
 import '../../../../core/utils/widgets/my_text.dart';
-import '../../price_list/view/subviews/price_list_data.dart';
-import '../view/subviews/my_jaliri_pricelist_table.dart';
+import '../view/subwidgets/my_jaliri_pricelist_table.dart';
 
 part 'jaliri_price_list_state.dart';
 
